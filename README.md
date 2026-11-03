@@ -1,1 +1,1 @@
-custormer.html
+customer.html
