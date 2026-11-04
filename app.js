@@ -90,6 +90,17 @@ function renderSingles() {
   }
   siteData.singles.forEach(treat => {
     const card = el("article", "treat");
+    if (treat.image || treat.src) {
+      const image = el("img", "treat-image");
+      image.src = treat.image || treat.src;
+      image.alt = treat.name || "Fresh bakery treat";
+      image.loading = "lazy";
+      image.style.width = "100%";
+      image.style.height = "150px";
+      image.style.objectFit = "cover";
+      image.style.borderRadius = "12px";
+      card.append(image);
+    }
     if (treat.tag) card.append(el("span", "treat-tag", treat.tag));
     card.append(el("h3", "", treat.name || "Fresh bake"), el("p", "", treat.desc || ""), el("strong", "", treat.price || "Ask"));
     container.append(card);
