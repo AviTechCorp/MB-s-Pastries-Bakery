@@ -1,5 +1,5 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import {getFirestore, doc, onSnapshot, collection, addDoc, serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import {initializeFirestore, doc, onSnapshot, collection, addDoc, serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuRwHUHDn5Nf-AhtNmo2ATITaRdiVJZnU",
@@ -46,7 +46,7 @@ const DEFAULT_SETTINGS = {
   tiktok: "Mb'sPastries&Bakery"
 };
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = initializeFirestore(app, {experimentalAutoDetectLongPolling: true});
 const siteRef = doc(db, "sites", SITE_ID);
 let siteData = {
   bulk: DEFAULT_BULK,
