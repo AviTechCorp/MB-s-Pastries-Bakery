@@ -1,1 +1,1 @@
-customer.html
+index.html
